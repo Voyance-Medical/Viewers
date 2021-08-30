@@ -49,7 +49,8 @@ ENV QUICK_BUILD true
 # ENV GENERATE_SOURCEMAP=false
 # ENV REACT_APP_CONFIG=config/default.js
 
-RUN yarn run build
+# RUN yarn run build
+RUN yarn run build-docker
 
 # Stage 2: Bundle the built application into a Docker container
 # which runs Nginx using Alpine Linux

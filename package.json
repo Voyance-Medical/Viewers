@@ -13,6 +13,7 @@
   "scripts": {
     "cm": "npx git-cz",
     "build": "lerna run build:viewer --stream",
+    "build-docker": "lerna run build:google --stream",
     "build:lt": "lerna run build:viewer:lesion-tracker --stream",
     "build:ci": "lerna run build:viewer:ci --stream",
     "build:demo": "lerna run build:viewer:demo --stream",
@@ -39,6 +40,8 @@
     "lerna:restore": "./netlify-lerna-restore.sh",
     "lerna:version": "npx lerna version prerelease --force-publish",
     "lerna:publish": "lerna publish from-package --canary --dist-tag canary",
+    "format": "prettier --write \"**/*.{js,css,html,json}\"",
+    "google": "APP_CONFIG=config/google.js yarn run dev",
     "link-list": "npm ls --depth=0 --link=true"
   },
   "dependencies": {
