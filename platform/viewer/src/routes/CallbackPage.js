@@ -14,9 +14,13 @@ class CallbackPage extends Component {
       <CallbackComponent
         userManager={this.props.userManager}
         successCallback={() => {
-          const { pathname, search = '' } = JSON.parse(
+          let { pathname, search = '' } = JSON.parse(
             sessionStorage.getItem('ohif-redirect-to')
           );
+
+          // TODO: fix this should not be fixed to specific data store
+          pathname =
+            '/projects/vpacs-323411/locations/europe-west3/datasets/Germany-test-dataset/dicomStores/dicom-test-data-store';
 
           this.props.history.push({ pathname, search });
         }}

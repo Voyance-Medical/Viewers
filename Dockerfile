@@ -20,7 +20,7 @@
 
 
 # Stage 1: Build the application
-# docker build -t ohif/viewer:latest .
+docker build -t ohif/viewer:latest .
 FROM node:15.13.0-slim as builder
 
 RUN mkdir /usr/src/app
@@ -52,6 +52,7 @@ ENV QUICK_BUILD true
 # RUN yarn run build
 RUN yarn run build-docker
 
+
 # Stage 2: Bundle the built application into a Docker container
 # which runs Nginx using Alpine Linux
 FROM nginx:1.15.5-alpine
@@ -61,6 +62,7 @@ COPY .docker/Viewer-v2.x /etc/nginx/conf.d
 COPY .docker/Viewer-v2.x/entrypoint.sh /usr/src/
 RUN chmod 777 /usr/src/entrypoint.sh
 COPY --from=builder /usr/src/app/platform/viewer/dist /usr/share/nginx/html
+# COPY ./platform/viewer/dist /usr/share/nginx/html
 EXPOSE 80
 EXPOSE 443
 ENTRYPOINT ["/usr/src/entrypoint.sh"]
