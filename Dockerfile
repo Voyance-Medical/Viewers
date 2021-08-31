@@ -52,6 +52,7 @@ ENV QUICK_BUILD true
 # RUN yarn run build
 RUN yarn run build-docker
 
+
 # Stage 2: Bundle the built application into a Docker container
 # which runs Nginx using Alpine Linux
 FROM nginx:1.15.5-alpine
