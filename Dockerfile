@@ -68,4 +68,14 @@
 # CMD ["nginx", "-g", "daemon off;"]
 
 
-FROM hello-world
+FROM node:15.13.0-slim
+# FROM hello-world
+# RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' && systemctl enable sshd
+# CMD /etc/init.d/oracle-xe start && /sbin/sshd && tail -f /dev/null
+# RUN ls
+# CMD [ "ls" ]
+
+
+RUN echo hi there
+CMD echo hi there
+# CMD tail -f /dev/null
